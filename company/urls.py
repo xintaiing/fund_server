@@ -1,7 +1,7 @@
 from django.urls import path
 
-from company.views import CompanyView
+from company.views import CompanyInfoCrawl
 
 urlpatterns = [
-    path('add/', CompanyView.as_view()),
+    path('crawl/', CompanyInfoCrawl.as_view()),
 ]

@@ -11,7 +11,7 @@ from fund_server import LOGGER_NAME
 logger = logging.getLogger(LOGGER_NAME)
 
 
-class CompanyView(View):
+class CompanyInfoCrawl(View):
 
     def post(self, request):
         json_body = json.loads(request.body)

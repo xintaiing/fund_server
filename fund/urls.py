@@ -1,7 +1,8 @@
 from django.urls import path
 
-from fund.views import FundView
+from fund.views import *
 
 urlpatterns = [
-    path('add/', FundView.as_view()),
+    path('crawl/', FundInfoCrawl.as_view()),
+    path('info/', FundInfoShow.as_view()),
 ]
