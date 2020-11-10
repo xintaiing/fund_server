@@ -21,21 +21,20 @@ def _check_data_format(data: Dict):
 class CompanyInfoCrawl(View):
 
     def post(self, request):
+        """
+        添加爬取的公司信息
+        """
         json_body = json.loads(request.body)
-        data = json_body.get("data")
-        company_code = data.get("company_code")
-        data["crawl_time"] = timezone.now()
+        data = _check_data_format(json_body.get("data"))
 
-        data = _check_data_format(data)
         if data:
-            company_set = Company.objects.filter(pk=company_code)
-            try:
-                if len(company_set):
-                    company_set.update(**data)
-                else:
-                    Company.objects.create(**data)
-            except Exception as e:
-                logger.error(f"url: {request.path} error: {e}")
-                logger.error(f"data: {data}")
+            # 生成爬取数据时间
+            data["crawl_time"] = timezone.now()
+
+            company_set = Company.objects.filter(pk=data.get("company_code"))
+            if len(company_set):
+                company_set.update(**data)
+            else:
+                Company.objects.create(**data)
             return HttpResponse("数据成功添加！")
         return HttpResponse("数据格式有误！")
