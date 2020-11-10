@@ -38,8 +38,8 @@ class FundInfoCrawl(View):
             except Exception as e:
                 logger.error(f"url: {request.path} error: {e}")
                 logger.error(f"data: {data}")
-            return HttpResponse("GOOD")
-        return HttpResponse("error")
+            return HttpResponse("数据成功添加！")
+        return HttpResponse("数据格式有误！")
 
 
 class FundInfoShow(View):
