@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'fund',
     'company',
+    'stock',
 ]
 
 MIDDLEWARE = [
+    'middleware.error_middleware.CollectionAllErrorMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,7 +51,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.error_middleware.CollectionAllErrorMiddleware',
 ]
 
 ROOT_URLCONF = 'fund_server.urls'

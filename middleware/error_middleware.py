@@ -13,6 +13,7 @@ class CollectionAllErrorMiddleware(MiddlewareMixin):
     拦截所有异常错误
     """
 
-    def process_exception(self, exception):
+    @staticmethod
+    def process_exception(request, exception):
         logger.error(exception)
         return HttpResponse("error")
