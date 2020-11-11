@@ -15,5 +15,5 @@ class CollectionAllErrorMiddleware(MiddlewareMixin):
 
     @staticmethod
     def process_exception(request, exception):
-        logger.error(exception)
-        return HttpResponse("error")
+        logger.error(f"path: {request.path}, method: {request.method}, error info: {exception}")
+        return HttpResponse("server error")

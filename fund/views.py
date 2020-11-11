@@ -51,7 +51,6 @@ class FundInfoShow(View):
         """
         显示所有基金
         """
-        print(request.path)
         cache = sr.lpop(request.path)
         if not cache:
             company_set = Fund.objects.all()[:100]
