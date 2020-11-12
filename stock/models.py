@@ -26,3 +26,17 @@ class FundStockShip(models.Model):
     class Meta:
         db_table = "fund_stock"
         verbose_name_plural = "股票持仓"
+
+
+class FundFundShip(models.Model):
+    fund = models.ForeignKey(Fund, on_delete=models.CASCADE)
+    related_fund_code = models.CharField(max_length=128, verbose_name="关联基金代码", default=None, null=True)
+    related_fund_name = models.CharField(max_length=128, verbose_name="关联基金名称", default=None, null=True)
+    proportion = models.CharField(max_length=128, verbose_name="持仓占比", default=None, null=True)
+    fluctuation = models.CharField(max_length=128, verbose_name="涨跌幅", default=None, null=True)
+    deadline_date = models.DateTimeField(verbose_name="持仓截止日期", default=None, null=True)
+    crawl_time = models.DateTimeField(verbose_name="抓取时间", default=None, null=True)
+
+    class Meta:
+        db_table = "fund_fund"
+        verbose_name_plural = "基金信息"
