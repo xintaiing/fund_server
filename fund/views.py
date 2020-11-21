@@ -9,11 +9,11 @@ from redis import StrictRedis
 
 from company.models import Company
 from fund.models import Fund
-from fund_server import LOGGER_NAME
+from fund_server import LOGGER_NAME, REDIS_HOST, REDIS_PORT
 
 logger = logging.getLogger(LOGGER_NAME)
 
-sr = StrictRedis(host="127.0.0.1", port="6379")
+sr = StrictRedis(host=REDIS_HOST, port=REDIS_PORT)
 
 
 def _check_data_format(data: Dict):
