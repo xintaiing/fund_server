@@ -1,7 +1,7 @@
 FROM python:3.7
 
 RUN mkdir /workspace
-COPY ./* /workspace
+COPY ./ /workspace
 WORKDIR /workspace
 
 RUN mkdir ~/.pip

@@ -155,7 +155,7 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',
             'filters': ['require_debug_false'],
-            'filename': os.path.join(BASE_DIR, "sys_log", "fund_server.log"),
+            'filename': os.path.join(BASE_DIR, "fund_server.log"),
             'maxBytes': 1024 * 1024 * 20,
             'backupCount': 5,
             'formatter': 'verbose'
