@@ -1,11 +1,11 @@
 version: '3'
 services:
   web:
-    build: ./fund_server
+    build: .
     container_name: fund_server
     restart: always
     volumes:
-      - './fund_server:/workspace'
+      - '.:/workspace'
     ports:
       - '8000:8000'
     command: bash -c "uwsgi --ini /workspace/uwsgi.ini"
